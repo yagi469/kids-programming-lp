@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来を創るキッズプログラミング教室 | スクラッチで学ぼう</title>
+    <meta name="description" content="小学生・中学生向けスクラッチプログラミング教室。ゲーム遊びを学びに変え、論理的思考力を育みます。無料体験受付中！">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316', // Main Orange
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        },
+                        accent: {
+                            500: '#3B82F6', // Blue for trust
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Zen Maru Gothic', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Zen Maru Gothic', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-heading font-bold text-brand-600">
+                KidsCode<span class="text-accent-500">.</span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-bold text-gray-600">
+                <a href="#problem" class="hover:text-brand-500 transition">お悩み</a>
+                <a href="#solution" class="hover:text-brand-500 transition">特徴</a>
+                <a href="#merit" class="hover:text-brand-500 transition">メリット</a>
+                <a href="#flow" class="hover:text-brand-500 transition">流れ</a>
+            </nav>
+            <a href="#contact"
+                class="bg-brand-500 hover:bg-brand-600 text-white font-bold py-2 px-6 rounded-full shadow-lg transform hover:scale-105 transition duration-300">
+                無料体験を予約
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 hero-gradient relative overflow-hidden">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0 z-10">
+                <span
+                    class="inline-block bg-brand-100 text-brand-700 px-4 py-1 rounded-full font-bold mb-4 text-sm tracking-wide">
+                    小学生・中学生向けプログラミング教室
+                </span>
+                <h1 class="text-4xl md:text-6xl font-black text-gray-900 leading-tight mb-6">
+                    「ゲームで遊ぶ」から<br>
+                    <span class="text-brand-500">「ゲームを作る」</span>へ。
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                    お子様の「大好き」を未来の力に。<br>
+                    スクラッチで論理的思考力と創造力を育む、<br>
+                    安心・安全なプログラミング学習を始めませんか？
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact"
+                        class="bg-brand-500 hover:bg-brand-600 text-white text-center font-bold py-4 px-8 rounded-full shadow-xl text-lg transform hover:-translate-y-1 transition duration-300">
+                        無料体験に申し込む
+                    </a>
+                    <a href="#solution"
+                        class="bg-white hover:bg-gray-50 text-gray-700 text-center font-bold py-4 px-8 rounded-full shadow-md border border-gray-200 transition duration-300">
+                        詳しく見る
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative z-10">
+                <div
+                    class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform rotate-2 hover:rotate-0 transition duration-500">
+                    <img src="assets/hero.png" alt="楽しそうにプログラミングする子供" class="w-full h-auto object-cover">
+                </div>
+                <!-- Decorative elements -->
+                <div
+                    class="absolute -top-10 -right-10 w-32 h-32 bg-accent-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob">
+                </div>
+                <div
+                    class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">こんなお悩みありませんか？</h2>
+                <div class="w-20 h-1 bg-brand-500 mx-auto rounded"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="assets/problem.png" alt="ゲームばかりしている子供"
+                        class="rounded-2xl shadow-lg w-full h-64 md:h-96 object-cover grayscale hover:grayscale-0 transition duration-500">
+                </div>
+                <div class="md:w-1/2 space-y-6">
+                    <div class="flex items-start">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold text-xl mr-4">
+                            !</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">家でゲームやYouTubeばかり...</h3>
+                            <p class="text-gray-600">「宿題しなさい」と言わないと動かない。このままで大丈夫か心配。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold text-xl mr-4">
+                            !</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">将来のために何かさせたいけど...</h3>
+                            <p class="text-gray-600">プログラミングが必修化されたけど、親が教えられない。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div
+                            class="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold text-xl mr-4">
+                            !</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">飽きっぽい性格で続くか不安</h3>
+                            <p class="text-gray-600">今まで色々な習い事を試したけど、すぐに辞めてしまった。</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-50 p-6 rounded-xl border-l-4 border-brand-500 mt-8">
+                        <p class="text-lg font-bold text-brand-700">
+                            その「ゲーム好き」は、才能の原石です。<br>
+                            当教室なら、夢中になれる学びがあります。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Solution</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-4">「スクラッチ」で広がる可能性</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-10">
+                    MITメディアラボが開発した、世界標準の子供向けプログラミング言語。<br>
+                    難しいコードは不要。ブロックを組み合わせるだけで、直感的に作品が作れます。
+                </p>
+
+                <!-- Scratch UI Mockup -->
+                <div
+                    class="max-w-3xl mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border-4 border-gray-200 transform hover:scale-[1.02] transition duration-500 mb-16">
+                    <!-- Title Bar -->
+                    <div class="bg-brand-500 h-8 flex items-center px-4 space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                    </div>
+                    <div class="flex h-64 md:h-80">
+                        <!-- Sidebar (Categories) -->
+                        <div
+                            class="w-16 bg-gray-100 flex flex-col items-center py-4 space-y-3 border-r border-gray-200">
+                            <div class="w-8 h-8 rounded-full bg-blue-500"></div>
+                            <div class="w-8 h-8 rounded-full bg-purple-500"></div>
+                            <div class="w-8 h-8 rounded-full bg-pink-500"></div>
+                            <div class="w-8 h-8 rounded-full bg-yellow-500"></div>
+                            <div class="w-8 h-8 rounded-full bg-orange-500"></div>
+                        </div>
+                        <!-- Block Palette -->
+                        <div class="w-1/3 bg-gray-50 border-r border-gray-200 p-4 space-y-3 hidden md:block">
+                            <div class="h-8 bg-blue-500 rounded-md w-full opacity-80"></div>
+                            <div class="h-8 bg-blue-500 rounded-md w-3/4 opacity-80"></div>
+                            <div class="h-8 bg-purple-500 rounded-md w-5/6 opacity-80"></div>
+                            <div class="h-8 bg-purple-500 rounded-md w-full opacity-80"></div>
+                        </div>
+                        <!-- Script Area -->
+                        <div class="flex-1 bg-white p-6 relative overflow-hidden">
+                            <div
+                                class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]">
+                            </div>
+
+                            <!-- Floating Blocks Animation -->
+                            <div class="relative z-10 space-y-0">
+                                <div
+                                    class="flex items-center bg-yellow-500 text-white px-4 py-2 rounded-md rounded-b-none shadow-md w-max mb-[-4px] transform hover:translate-x-2 transition">
+                                    <span class="font-bold text-sm">🏁 スタートがおされたとき</span>
+                                </div>
+                                <div
+                                    class="flex items-center bg-orange-500 text-white px-4 py-2 rounded-md shadow-md w-max ml-0 mb-[-4px] border-t border-black/10">
+                                    <span class="font-bold text-sm">🔁 ずっと</span>
+                                </div>
+                                <div class="pl-4 border-l-4 border-orange-500 ml-3 py-1">
+                                    <div
+                                        class="flex items-center bg-blue-500 text-white px-4 py-2 rounded-md shadow-md w-max mb-1">
+                                        <span class="font-bold text-sm">🚶 10ぽ うごかす</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center bg-purple-500 text-white px-4 py-2 rounded-md shadow-md w-max">
+                                        <span class="font-bold text-sm">🌈 いろを かえる</span>
+                                    </div>
+                                </div>
+                                <div class="h-2 bg-orange-500 w-8 ml-3 rounded-b-md"></div>
+                            </div>
+
+                            <!-- Cat Sprite (Abstract) -->
+                            <div class="absolute bottom-4 right-4 w-20 h-20 opacity-20">
+                                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M70 30L90 10L80 50L90 90L50 80L10 90L20 50L10 10L30 30C30 30 40 10 60 10C80 10 70 30 70 30Z"
+                                        fill="#F97316" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-brand-400">
+                    <div class="w-16 h-16 bg-brand-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🧩
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">論理的思考力が身につく</h3>
+                    <p class="text-gray-600">
+                        「どうすればキャラクターが動くか？」を順序立てて考えることで、物事を論理的に捉える力が自然と育ちます。
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-accent-500">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🎨
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">創造力を爆発させる</h3>
+                    <p class="text-gray-600">
+                        正解はありません。自分の頭の中にあるアイデアを形にする喜びを知り、クリエイティブな自信がつきます。
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-green-500">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🤝
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">問題解決能力</h3>
+                    <p class="text-gray-600">
+                        思い通りに動かない時こそが学びのチャンス。「なぜ？」を考え、試行錯誤する粘り強さが身につきます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Factors -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="md:w-1/2 relative">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition duration-500">
+                        <img src="assets/classroom.png" alt="明るい教室で学ぶ子供たち" class="w-full h-auto object-cover">
+                        <div
+                            class="absolute bottom-6 left-6 bg-white/90 backdrop-blur p-4 rounded-xl shadow-lg max-w-xs">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold">
+                                    ✓</div>
+                                <p class="font-bold text-sm text-gray-700">保護者満足度 98%<br><span
+                                        class="text-xs font-normal text-gray-500">「楽しそうに通っている」と好評です</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                        親御さんも安心の<br>
+                        <span class="text-brand-500">3つのサポート体制</span>
+                    </h2>
+                    <ul class="space-y-6">
+                        <li class="flex">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg">
+                                1</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-1">ステップアップ式カリキュラム</h4>
+                                <p class="text-gray-600">基礎から応用まで、お子様のペースに合わせて無理なく進められるオリジナル教材を使用します。</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg">
+                                2</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-1">経験豊富な講師陣</h4>
+                                <p class="text-gray-600">プログラミングスキルだけでなく、お子様のやる気を引き出すコーチング研修を受けた講師が担当します。</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg">
+                                3</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-1">成長が見えるレポート</h4>
+                                <p class="text-gray-600">「今日何を作ったか」「どんな工夫をしたか」を毎回フィードバック。ご家庭での会話も弾みます。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merit & Demerit -->
+    <section id="merit" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">正直にお伝えします</h2>
+                <p class="text-gray-400">メリットだけでなく、懸念点についても包み隠さずお話しします。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Merits -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <h3 class="text-2xl font-bold text-brand-400 mb-6 flex items-center">
+                        <span class="text-3xl mr-3">👍</span> メリット
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-brand-500 mr-2">●</span>
+                            <span>PC操作・ITリテラシーが自然と身につく</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-500 mr-2">●</span>
+                            <span>自分だけの作品を作ることで自己肯定感が上がる</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-brand-500 mr-2">●</span>
+                            <span>世界中のクリエイターの作品から刺激を受けられる</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Demerits & Solutions -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-gray-700 text-xs px-2 py-1 rounded-bl-lg text-gray-400">対策済み
+                    </div>
+                    <h3 class="text-2xl font-bold text-blue-400 mb-6 flex items-center">
+                        <span class="text-3xl mr-3">🤔</span> 懸念点と対策
+                    </h3>
+                    <ul class="space-y-6">
+                        <li>
+                            <p class="font-bold text-gray-300 mb-1">画面を見る時間が増えるのでは？</p>
+                            <p class="text-sm text-gray-400 bg-gray-900/50 p-3 rounded-lg border-l-2 border-blue-500">
+                                授業は60分で区切り、適度な休憩と「考える時間（画面を見ない時間）」を設けています。
+                            </p>
+                        </li>
+                        <li>
+                            <p class="font-bold text-gray-300 mb-1">ネットトラブルが心配</p>
+                            <p class="text-sm text-gray-400 bg-gray-900/50 p-3 rounded-lg border-l-2 border-blue-500">
+                                教室管理下の安全なネットワークのみを使用し、SNS機能の利用には制限を設けて指導します。
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow Section -->
+    <section id="flow" class="py-20 bg-brand-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">無料体験までの流れ</h2>
+                <p class="text-gray-600">まずは気軽にあそびにきてください！</p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <!-- Connecting Line -->
+                <div
+                    class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-brand-200 -z-10 transform -translate-y-1/2">
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Step 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center relative">
+                        <div
+                            class="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border-4 border-white">
+                            1</div>
+                        <h4 class="font-bold text-lg mb-2">Web予約</h4>
+                        <p class="text-sm text-gray-600">フォームから希望日時を選択</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center relative">
+                        <div
+                            class="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border-4 border-white">
+                            2</div>
+                        <h4 class="font-bold text-lg mb-2">確認メール</h4>
+                        <p class="text-sm text-gray-600">当日の案内が届きます</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center relative">
+                        <div
+                            class="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border-4 border-white">
+                            3</div>
+                        <h4 class="font-bold text-lg mb-2">体験レッスン</h4>
+                        <p class="text-sm text-gray-600">60分でゲーム作りに挑戦！</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center relative">
+                        <div
+                            class="w-12 h-12 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border-4 border-white">
+                            4</div>
+                        <h4 class="font-bold text-lg mb-2">カウンセリング</h4>
+                        <p class="text-sm text-gray-600">お子様の様子をご報告</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">よくある質問</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2 flex items-center">
+                        <span class="text-brand-500 mr-3">Q.</span> パソコンに触ったことがなくても大丈夫？
+                    </h3>
+                    <p class="text-gray-600 pl-8">
+                        <span class="font-bold text-gray-400 mr-2">A.</span>
+                        はい、全く問題ありません。マウスの持ち方やキーボードの打ち方から丁寧に指導いたします。
+                    </p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2 flex items-center">
+                        <span class="text-brand-500 mr-3">Q.</span> 親がプログラミングを知らなくても平気ですか？
+                    </h3>
+                    <p class="text-gray-600 pl-8">
+                        <span class="font-bold text-gray-400 mr-2">A.</span>
+                        もちろんです。専門の講師がサポートしますので、親御様は専門知識不要です。お子様の作品を一緒に楽しんであげてください。
+                    </p>
+                </div>
+                <div class="border border-gray-200 rounded-lg p-6">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2 flex items-center">
+                        <span class="text-brand-500 mr-3">Q.</span> 何歳から始められますか？
+                    </h3>
+                    <p class="text-gray-600 pl-8">
+                        <span class="font-bold text-gray-400 mr-2">A.</span>
+                        推奨は小学1年生からですが、ひらがなが読めれば年長さんからでもご相談可能です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Footer -->
+    <section id="contact" class="py-20 bg-brand-500 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black mb-6">未来のクリエイターを待っています！</h2>
+            <p class="text-xl mb-10 opacity-90">まずは無料体験で、プログラミングの楽しさに触れてみてください。</p>
+
+            <div class="bg-white text-gray-800 p-8 rounded-3xl max-w-lg mx-auto shadow-2xl">
+                <h3 class="text-2xl font-bold mb-6">無料体験予約フォーム</h3>
+                <form class="space-y-4">
+                    <div>
+                        <input type="text" placeholder="保護者様のお名前"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div>
+                        <input type="email" placeholder="メールアドレス"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                    </div>
+                    <div>
+                        <select
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-gray-600">
+                            <option>お子様の学年を選択</option>
+                            <option>小学1年生</option>
+                            <option>小学2年生</option>
+                            <option>小学3年生</option>
+                            <option>小学4年生</option>
+                            <option>小学5年生</option>
+                            <option>小学6年生</option>
+                            <option>中学生</option>
+                        </select>
+                    </div>
+                    <button type="button"
+                        class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-lg shadow-lg transition duration-300 text-lg">
+                        予約を送信する
+                    </button>
+                </form>
+                <p class="text-xs text-gray-400 mt-4">※ これはデモサイトです。実際の予約は行われません。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2024 KidsCode Programming School. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
